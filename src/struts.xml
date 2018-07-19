@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.ui.theme" value="simple"/>
+	<package name="default" namespace="/" extends="struts-default">
+		<!-- 配置默认的Action -->
+		<default-action-ref name="defaulAction"/>
+		<!-- <global-results>
+			<result name="input">/page/fail.jsp</result>
+			<result name="error">/page/fail.jsp</result>
+		</global-results> -->
+		<action name="defaulAction">
+			<result>/page/fail.jspb</result>
+		</action>
+		<action name="login" class="org.renting.action.LoginAction">
+			<result name="success" type="dispatcher">/page/manage.jsp</result>
+			<result name="error">/page/fail.jsp</result>
+			<!-- 判断登录不能为空的映射 -->
+			<result name="input">/page/login_struts2.jsp</result>
+			<result name="findUser">/page/user_list.jsp</result>
+		</action>
+		<action name="register" class="org.renting.action.RegisterAction">
+			<result name="success">/page/success.jsp</result>
+			<result name="fail">/page/register.jsp</result>
+			<result name="input">/page/register.jsp</result>
+		</action>
+		
+		<action name="add" class="org.renting.action.AddAction">
+			<result name="add">/page/manage.jsp</result>
+		</action>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<!-- 动态结果示例 -->
+		<action name="doLogin" class="org.renting.action.doLoginAction" method="doLogin">
+			<result type="redirectAction">${nextDispose}</result>
+			<result name="input">/page/fail.jsp</result>
+		</action>
+		<action name="common">
+			<result>/page/zcommon.jsp</result>
+		</action>
+		<action name="manager">
+			<result>/page/zmanager.jsp</result> 
+		</action>
+	</package>
+</struts>
